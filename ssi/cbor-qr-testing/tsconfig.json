@@ -4,6 +4,8 @@
     "rootDir": "src",
     "baseUrl": "./",
     "declaration": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "exclude": ["node_modules", "example"],
   "include": ["src/**/*"]

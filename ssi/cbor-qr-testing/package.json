@@ -20,7 +20,12 @@
     "tsconfig-paths": "^3.10.1"
   },
   "dependencies": {
-    "@sphereon/pe-js": "^0.5.1",
+    "@digitalbazaar/cborld": "^4.4.0",
+    "@digitalbazaar/ed25519-signature-2018": "^2.1.0",
+    "@digitalbazaar/ed25519-verification-key-2018": "^3.2.0",
+    "@digitalbazaar/vc": "^2.1.0",
+    "@transmute/did-key.js": "^0.3.0-unstable.8",
+    "jsonld-signatures": "^9.3.1",
     "typescript": "^4.3.4"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": "./",
+    "declaration": true,
+  },
+  "exclude": ["node_modules", "example"],
+  "include": ["src/**/*"]
+}

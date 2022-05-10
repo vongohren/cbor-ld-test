@@ -41,9 +41,26 @@ const createVPAndVerify = async () => {
   console.log(JSON.stringify(result))
 };
 
+const createCborLDQRCode = async ()=> {
+  const vcs = [eduCredentialDiwala]
+  const presentation = vc.createPresentation({
+    verifiableCredential: vcs
+  });
 
+  const keyPair = await Ed25519VerificationKey2018.from(holder);
 
+  const issuerSuite = new Ed25519Signature2018({key: keyPair});
 
-};
+  const challenge = 'adasdsadae211';
+  
+  const documentLoaderSelf = docLoader
+
+  const vp = await vc.signPresentation({
+    presentation, suite: issuerSuite, challenge, documentLoader: documentLoaderSelf
+  });
+
+  const cborldBytes = await encode({jsonldDocument: vp, documentLoader:documentLoaderSelf});
+  console.log(cborldBytes)
+}
 
 RunFunctions();

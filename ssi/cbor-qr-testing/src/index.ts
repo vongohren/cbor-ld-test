@@ -4,30 +4,32 @@ import { Ed25519VerificationKey2018 } from '@digitalbazaar/ed25519-verification-
 import { holder } from './fixtures/keys';
 import {Ed25519Signature2018} from '@digitalbazaar/ed25519-signature-2018'
 import { docLoader } from './docs';
+import {encode, documentLoader} from '@digitalbazaar/cborld';
 
-const Main = async () => {
+const RunFunctions = async () => {
+  await createVPAndVerify()
+  await createCborLDQRCode();
+}
+
+const createVPAndVerify = async () => {
   const vcs = [eduCredentialDiwala]
-  console.log(vc);
   const presentation = vc.createPresentation({
     verifiableCredential: vcs
   });
 
-  console.log(presentation)
-
   const keyPair = await Ed25519VerificationKey2018.from(holder);
-  console.log(keyPair)
 
   const issuerSuite = new Ed25519Signature2018({key: keyPair});
 
-  
-
   const challenge = 'adasdsadae211';
   
-  const documentLoader = docLoader
+  const documentLoaderSelf = docLoader
 
   const vp = await vc.signPresentation({
-    presentation, suite: issuerSuite, challenge, documentLoader
+    presentation, suite: issuerSuite, challenge, documentLoader: documentLoaderSelf
   });
+
+  console.log(documentLoader)
 
   console.log(vp)
 
@@ -37,10 +39,11 @@ const Main = async () => {
 
   // console.log(result)
   console.log(JSON.stringify(result))
+};
 
 
 
 
 };
 
-Main();
+RunFunctions();

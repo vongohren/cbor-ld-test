@@ -6,9 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "test": "ts-node src/index.ts",
-    "start:dist": "node dist/index.js",
-    "build": "rimraf dist && tsc --build",
-    "start:dev": "tsnd -r tsconfig-paths/register --inspect -- src/index.ts",
+    "inspect": "tsnd -r tsconfig-paths/register --inspect -- src/index.ts",
     "setup": "PREFIX=dev teller env > .env",
     "artifactregistry-login": "npx google-artifactregistry-auth ./.npmrc"
   },
